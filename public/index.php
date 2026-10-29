@@ -1,4 +1,15 @@
 <?php
+require_once __DIR__ . '/../app/model/Database.php';
+
+try {
+    $database = new Database();
+    $pdo = $database->connect();
+
+    echo 'Database Connected Successfully!';
+} catch (PDOException $e) {
+    echo 'Error: ' . $e->getMessage();
+    exit;
+}
 
 require_once __DIR__ . '/../app/controller/HomeController.php';
 
